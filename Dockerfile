@@ -2,8 +2,7 @@ FROM apache/superset:master
 
 USER root
 
-RUN . /app/.venv/bin/activate && \
-    uv pip install \
+RUN pip install \
     # install psycopg2 for using PostgreSQL metadata store - could be a MySQL package if using that backend:
     psycopg2-binary \
     # add the driver(s) for your data warehouse(s), in this example we're showing for Microsoft SQL Server:
