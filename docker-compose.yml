@@ -43,7 +43,7 @@ services:
 
     volumes:
       - ./superset_config.py:/app/pythonpath/superset_config.py:ro
-      - ./volumes/superset_home:/app/superset_home
+      - ./volumes/superset_home:/app
     ports:
       - "8088:8088"
     depends_on:
