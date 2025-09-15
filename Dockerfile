@@ -1,28 +1,23 @@
-FROM python:3.11-slim
+FROM apache/superset:master
 
 USER root
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       build-essential \
-       libpq-dev \
-       gcc \
-       git \
-       curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN . /app/.venv/bin/activate && \
+    uv pip install \
+    # install psycopg2 for using PostgreSQL metadata store - could be a MySQL package if using that backend:
+    psycopg2-binary \
+    # add the driver(s) for your data warehouse(s), in this example we're showing for Microsoft SQL Server:
+    pymssql \
+    # package needed for using single-sign on authentication:
+    Authlib \
+    # openpyxl to be able to upload Excel files
+    openpyxl \
+    # Pillow for Alerts & Reports to generate PDFs of dashboards
+    Pillow
 
-RUN useradd -ms /bin/bash superset
+COPY --chown=superset superset_config.py /app/
+ENV SUPERSET_CONFIG_PATH /app/superset_config.py
+
 USER superset
-WORKDIR /home/superset
 
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir apache-superset psycopg2-binary flask-cors redis
-
-RUN mkdir -p .volumes/superset_home
-
-COPY superset_config.py /home/superset/pythonpath/superset_config.py
-
-EXPOSE 8088
-
-CMD ["superset", "run", "-p", "8088", "--with-threads", "--reload", "--debugger"]
+CMD ["/app/docker/entrypoints/run-server.sh"]
