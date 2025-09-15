@@ -1,4 +1,3 @@
-# Базовый образ с Python 3.11
 FROM python:3.11-slim
 
 USER root
@@ -26,5 +25,4 @@ COPY superset_config.py /home/superset/pythonpath/superset_config.py
 
 EXPOSE 8088
 
-# EntryPoint
 CMD ["superset", "run", "-p", "8088", "--with-threads", "--reload", "--debugger"]
