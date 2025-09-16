@@ -6,7 +6,7 @@ COPY requirements-local.txt ./docker/requirements-local.txt
 COPY --chown=superset superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
 
-RUN pip install --no-cache-dir -r /app/requirements-local.txt
+RUN pip install --no-cache-dir -r ./docker/requirements-local.txt
 
 USER superset
 
