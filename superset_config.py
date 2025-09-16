@@ -22,6 +22,7 @@ CORS_OPTIONS = {
 # --- Embedding (iframe) ---
 FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
+    "ALERT_REPORTS": True
 }
 # Guest (public) role
 GUEST_ROLE_NAME = "Public"
