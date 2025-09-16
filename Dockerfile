@@ -10,8 +10,7 @@ RUN . /app/.venv/bin/activate && \
     pymssql \
     Authlib \
     openpyxl \
-    Pillow \
-    flask_cors
+    Pillow
 
 COPY --chown=superset superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
