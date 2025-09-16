@@ -4,9 +4,6 @@ psycopg2-binary
 # SQL Server
 pymssql
 
-# MySQL
-mysqlclient
-
 # Excel support
 openpyxl
 
