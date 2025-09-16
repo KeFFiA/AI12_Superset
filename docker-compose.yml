@@ -40,7 +40,7 @@ services:
       - SECRET_KEY=KF9MCWa6sg3AYeCZ8KkIXKrNK4f1yBk30mwvJhaKidvL2HkJ+vIJfJJo
     volumes:
       - ./superset_config.py:/app/pythonpath/superset_config.py:ro
-      - ./volumes/superset:/app
+      - ./volumes/superset_home:/app/superset_home
     ports:
       - "8088:8088"
     depends_on:
