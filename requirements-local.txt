@@ -1,0 +1,17 @@
+# PostgreSQL
+psycopg2-binary
+
+# SQL Server
+pymssql
+
+# MySQL
+mysqlclient
+
+# Excel support
+openpyxl
+
+# PDF / images for dashboards
+Pillow
+
+# Auth for SSO
+Authlib
