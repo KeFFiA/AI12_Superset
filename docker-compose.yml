@@ -41,6 +41,7 @@ services:
       - SECRET_KEY=KF9MCWa6sg3AYeCZ8KkIXKrNK4f1yBk30mwvJhaKidvL2HkJ+vIJfJJo
       - GUEST_TOKEN_JWT_EXP_SECONDS=600
     volumes:
+      - ./superset_config.py:/app/superset_config.py
       - ./volumes/superset_home:/app/superset_home
     ports:
       - "8088:8088"
