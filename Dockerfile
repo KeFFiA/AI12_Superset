@@ -4,6 +4,8 @@ USER root
 
 COPY docker/requirements-local.txt /app/docker/requirements-local.txt
 
+RUN apt-get install libpq-dev python-dev -y
+
 RUN . /app/.venv/bin/activate && \
     uv pip install --no-cache-dir -r /app/docker/requirements-local.txt
 
