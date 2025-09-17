@@ -19,6 +19,7 @@ CMD sh -c "
         --lastname Admin \
         --email admin@admin.com \
         --password admin || true &&
+    superset load-examples &&
     superset init
 "
 
