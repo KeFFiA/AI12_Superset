@@ -20,12 +20,12 @@ CORS_OPTIONS = {
 
 # --- Embedding (iframe) ---
 
-TALISMAN_ENABLED = True
-TALISMAN_CONFIG = {
-    "content_security_policy": {
-        "frame-ancestors": ["*.kazargrad.ru", "kazargrad.ru"]
-    }
-}
+# TALISMAN_ENABLED = True
+# TALISMAN_CONFIG = {
+#     "content_security_policy": {
+#         "frame-ancestors": ["*.kazargrad.ru", "kazargrad.ru"]
+#     }
+# }
 
 FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
