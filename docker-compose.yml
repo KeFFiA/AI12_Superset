@@ -5,6 +5,8 @@ services:
       POSTGRES_USER: superset
       POSTGRES_PASSWORD: superset
       POSTGRES_DB: superset
+    networks:
+      - superset_net
     volumes:
       - ./volumes/pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -15,6 +17,8 @@ services:
   redis:
     image: redis:7
     command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - superset_net
     volumes:
       - ./volumes/redis:/data
     healthcheck:
@@ -27,6 +31,8 @@ services:
     build: .
     image: ai12_superset:latest
     restart: unless-stopped
+    networks:
+      - superset_net
     environment:
       # Mapbox
       - MAPBOX_API_KEY=pk.eyJ1IjoiYWdyaW5pbiIsImEiOiJjbWZreHlhcnIwMjFnMm1zNnBpaW91M2pvIn0.56vxzoKVrYvnZtM_j3DNog
@@ -46,3 +52,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+
+
+networks:
+  superset_net:
+    driver: bridge
