@@ -12,7 +12,7 @@ ENV SUPERSET_CONFIG_PATH /app/superset_config.py
 
 USER superset
 
-CMD sh -c "\
+ENTRYPOINT sh -c "\
     superset db upgrade && \
     superset fab create-admin \
         --username admin \
@@ -20,7 +20,8 @@ CMD sh -c "\
         --lastname Admin \
         --email admin@admin.com \
         --password admin || true && \
-    superset load-examples && \
     superset init && \
-    /app/docker/entrypoints/run-server.sh \
+    exec \"$@\" \
 "
+
+CMD ["/app/docker/entrypoints/run-server.sh"]
