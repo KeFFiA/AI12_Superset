@@ -27,7 +27,8 @@ services:
     build: .
     image: ai12_superset:latest
     restart: unless-stopped
-    network_mode: "host"
+    extra_hosts:
+      - "windb:193.239.161.50"
     environment:
       # Mapbox
       - MAPBOX_API_KEY=pk.eyJ1IjoiYWdyaW5pbiIsImEiOiJjbWZreHlhcnIwMjFnMm1zNnBpaW91M2pvIn0.56vxzoKVrYvnZtM_j3DNog
