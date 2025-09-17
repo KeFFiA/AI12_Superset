@@ -6,7 +6,7 @@ import os
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # --- Main DB ---
-SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@0.0.0.0:5432/superset")
+SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@localhost:5432/superset")
 
 # --- Mapbox ---
 MAPBOX_API_KEY = os.getenv("MAPBOX_API_KEY", "")
@@ -36,7 +36,7 @@ ROW_LEVEL_SECURITY = True
 
 # --- Cache / Results backend (Redis example) ---
 # If Redis needed, write REDIS URL into .env:
-REDIS_URL = os.getenv("REDIS_URL", "redis://0.0.0.0:6379/0")
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
 # Flask caching
 CACHE_CONFIG = {

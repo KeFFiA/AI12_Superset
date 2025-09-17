@@ -31,8 +31,6 @@ services:
     environment:
       # Mapbox
       - MAPBOX_API_KEY=pk.eyJ1IjoiYWdyaW5pbiIsImEiOiJjbWZreHlhcnIwMjFnMm1zNnBpaW91M2pvIn0.56vxzoKVrYvnZtM_j3DNog
-      # Redis (cache + results backend)
-      - REDIS_URL=redis://0.0.0.0:6379/0
       # Optional
       - GUEST_TOKEN_JWT_EXP_SECONDS=600
       - SUPERSET_HOME=/app/superset_home
