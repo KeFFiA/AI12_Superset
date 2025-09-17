@@ -6,3 +6,5 @@ pymssql
 
 # Auth for SSO
 Authlib
+
+flask-cors
