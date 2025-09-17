@@ -1,16 +1,11 @@
-# Используйте нужную версию Superset
 FROM apache/superset:5.0.0
 
 USER root
 
+COPY requirements-local.txt /app/docker/requirements-local.txt
 
 RUN . /app/.venv/bin/activate && \
-    uv pip install \
-    psycopg2-binary \
-    pymssql \
-    Authlib \
-    openpyxl \
-    Pillow
+    pip install --no-cache-dir -r /app/docker/requirements-local.txt
 
 COPY --chown=superset superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
