@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   # Локальная база для Superset
   db:
