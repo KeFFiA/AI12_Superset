@@ -22,8 +22,10 @@ CORS_OPTIONS = {
 # --- Embedding (iframe) ---
 FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
-    "ALERT_REPORTS": True
+    "ALERT_REPORTS": True,
+    "ALLOW_DASHBOARD_DOMAIN_SHARDING": True,
 }
+ALLOW_DASHBOARD_DOMAIN_SHARDING = True
 # Guest (public) role
 GUEST_ROLE_NAME = "Public"
 # guest token live time (if JWT guest tokens needed)
