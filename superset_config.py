@@ -2,7 +2,6 @@
 
 import os
 
-
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # --- Main DB ---
@@ -20,10 +19,19 @@ CORS_OPTIONS = {
 }
 
 # --- Embedding (iframe) ---
+
+TALISMAN_ENABLED = True
+TALISMAN_CONFIG = {
+    "content_security_policy": {
+        "frame-ancestors": ["*.kazargrad.ru", "kazargrad.ru"]
+    }
+}
+
 FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
     "ALERT_REPORTS": True,
     "ALLOW_DASHBOARD_DOMAIN_SHARDING": True,
+    'DASHBOARD_RBAC': True
 }
 ALLOW_DASHBOARD_DOMAIN_SHARDING = True
 # Guest (public) role
