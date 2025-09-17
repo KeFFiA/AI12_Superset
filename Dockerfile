@@ -5,7 +5,7 @@ USER root
 COPY docker/requirements-local.txt /app/docker/requirements-local.txt
 
 RUN . /app/.venv/bin/activate && \
-    pip install --no-cache-dir -r /app/docker/requirements-local.txt
+    uv pip install --no-cache-dir -r /app/docker/requirements-local.txt
 
 COPY --chown=superset superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
