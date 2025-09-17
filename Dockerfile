@@ -10,7 +10,6 @@ RUN . /app/.venv/bin/activate && \
 COPY --chown=superset superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
 
-USER superset
 
 CMD sh -c "
     superset db upgrade &&
@@ -20,6 +19,9 @@ CMD sh -c "
         --lastname Admin \
         --email admin@admin.com \
         --password admin || true &&
-    superset init &&
-    /app/docker/entrypoints/run-server.sh
+    superset init
 "
+
+USER superset
+
+CMD["/app/docker/entrypoints/run-server.sh"]
