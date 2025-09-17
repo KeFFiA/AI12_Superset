@@ -1,5 +1,6 @@
 # PostgreSQL
 psycopg2-binary
+asyncpg
 
 # SQL Server
 pymssql
@@ -8,3 +9,4 @@ pymssql
 Authlib
 
 flask-cors
+
