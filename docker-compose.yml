@@ -2,6 +2,8 @@ services:
   # Локальная база для Superset
   db:
     image: postgres:15
+    networks:
+      - superset-net
     environment:
       POSTGRES_USER: superset
       POSTGRES_PASSWORD: superset
@@ -16,6 +18,8 @@ services:
   redis:
     image: redis:7
     command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - superset-net
     volumes:
       - ./volumes/redis:/data
     healthcheck:
