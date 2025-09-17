@@ -6,7 +6,7 @@ import os
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # --- Main DB ---
-SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@db:5432/superset")
+SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@212.69.84.131:5432/superset")
 
 # --- Mapbox ---
 MAPBOX_API_KEY = os.getenv("MAPBOX_API_KEY", "")
