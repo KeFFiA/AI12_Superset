@@ -1,4 +1,7 @@
+version: "3.9"
+
 services:
+  # Локальная база для Superset
   db:
     image: postgres:15
     environment:
@@ -27,16 +30,16 @@ services:
     build: .
     image: ai12_superset:latest
     restart: unless-stopped
-    extra_hosts:
-      - "windb:193.239.161.50"
     environment:
       # Mapbox
       - MAPBOX_API_KEY=pk.eyJ1IjoiYWdyaW5pbiIsImEiOiJjbWZreHlhcnIwMjFnMm1zNnBpaW91M2pvIn0.56vxzoKVrYvnZtM_j3DNog
-      # Optional
-      - GUEST_TOKEN_JWT_EXP_SECONDS=600
+      # Superset
       - SUPERSET_HOME=/app/superset_home
       - SUPERSET_CONFIG_PATH=/app/superset_config.py
       - SECRET_KEY=KF9MCWa6sg3AYeCZ8KkIXKrNK4f1yBk30mwvJhaKidvL2HkJ+vIJfJJo
+      - GUEST_TOKEN_JWT_EXP_SECONDS=600
+      # Внешняя БД
+      - MAIN_DB_URL=postgresql+psycopg2://asgdevelop:asgdev1234567890@193.239.161.50:5432/flightradar
     volumes:
       - ./volumes/superset_home:/app/superset_home
     ports:
@@ -46,3 +49,9 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    networks:
+      - superset-net
+
+networks:
+  superset-net:
+    driver: bridge
