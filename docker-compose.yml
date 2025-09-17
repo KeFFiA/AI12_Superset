@@ -33,6 +33,7 @@ services:
     restart: unless-stopped
     networks:
       - superset_net
+    network_mode: "host"
     environment:
       # Mapbox
       - MAPBOX_API_KEY=pk.eyJ1IjoiYWdyaW5pbiIsImEiOiJjbWZreHlhcnIwMjFnMm1zNnBpaW91M2pvIn0.56vxzoKVrYvnZtM_j3DNog
