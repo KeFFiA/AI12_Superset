@@ -4,6 +4,9 @@ import os
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+
+ENABLE_UI_THEME_ADMINISTRATION = True
+
 # --- Main DB ---
 SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@db:5432/superset")
 
