@@ -29,6 +29,9 @@ TALISMAN_CONFIG = {
         "frame-ancestors": ["kazargrad.ru", "*.kazargrad.ru", "*.aixii.com", "bi.aixii.com"],
     },
 }
+HTTP_HEADERS = {
+    'X-Frame-Options': 'ALLOWALL'
+}
 
 FEATURE_FLAGS = {
     "ALERT_REPORTS": True,
