@@ -35,8 +35,11 @@ HTTP_HEADERS = {
 
 FEATURE_FLAGS = {
     "ALERT_REPORTS": True,
-    'DASHBOARD_RBAC': True
+    'DASHBOARD_RBAC': True,
+    'EMBEDDED_SUPERSET': True,
 }
+ALLOW_DASHBOARD_DOMAIN_SHARDING = True
+
 # Guest (public) role
 GUEST_ROLE_NAME = "Public"
 # guest token live time (if JWT guest tokens needed)
