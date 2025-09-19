@@ -4,7 +4,7 @@ import os
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-
+SUPERSET_FEATURE_EMBEDDED_SUPERSET =True
 ENABLE_UI_THEME_ADMINISTRATION = True
 
 # --- Main DB ---
@@ -26,19 +26,14 @@ CORS_OPTIONS = {
 TALISMAN_ENABLED = True
 TALISMAN_CONFIG = {
     "content_security_policy": {
-        "frame-ancestors": ["https://kazargrad.ru", "https://*.kazargrad.ru"]
+        "frame-ancestors": ["kazargrad.ru", "*.kazargrad.ru", "*.aixii.com", "bi.aixii.com"],
     },
-    "force_https": False,
-    "strict_transport_security": False,
 }
 
 FEATURE_FLAGS = {
-    "EMBEDDED_SUPERSET": True,
     "ALERT_REPORTS": True,
-    "ALLOW_DASHBOARD_DOMAIN_SHARDING": True,
     'DASHBOARD_RBAC': True
 }
-ALLOW_DASHBOARD_DOMAIN_SHARDING = True
 # Guest (public) role
 GUEST_ROLE_NAME = "Public"
 # guest token live time (if JWT guest tokens needed)
