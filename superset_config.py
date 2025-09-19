@@ -7,6 +7,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 SUPERSET_FEATURE_EMBEDDED_SUPERSET =True
 ENABLE_UI_THEME_ADMINISTRATION = True
 
+APP_NAME = "BI.AI12"
+
 # --- Main DB ---
 SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@db:5432/superset")
 
@@ -41,7 +43,7 @@ FEATURE_FLAGS = {
 ALLOW_DASHBOARD_DOMAIN_SHARDING = True
 
 # Guest (public) role
-GUEST_ROLE_NAME = "Public"
+PUBLIC_ROLE_LIKE = "Gamma"
 # guest token live time (if JWT guest tokens needed)
 GUEST_TOKEN_JWT_EXP_SECONDS = int(os.getenv("GUEST_TOKEN_JWT_EXP_SECONDS", 300))
 
