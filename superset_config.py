@@ -28,7 +28,8 @@ TALISMAN_CONFIG = {
     "content_security_policy": {
         "frame-ancestors": ["https://kazargrad.ru", "https://*.kazargrad.ru"]
     },
-    "x_frame_options": None,
+    "force_https": False,
+    "strict_transport_security": False,
 }
 
 FEATURE_FLAGS = {
