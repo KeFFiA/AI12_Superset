@@ -26,8 +26,9 @@ CORS_OPTIONS = {
 TALISMAN_ENABLED = True
 TALISMAN_CONFIG = {
     "content_security_policy": {
-        "frame-ancestors": ["*.kazargrad.ru", "kazargrad.ru"]
-    }
+        "frame-ancestors": ["https://kazargrad.ru", "https://*.kazargrad.ru"]
+    },
+    "x_frame_options": None,
 }
 
 FEATURE_FLAGS = {
