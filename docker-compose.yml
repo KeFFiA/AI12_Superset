@@ -2,6 +2,7 @@ services:
   # Локальная база для Superset
   db:
     image: postgres:15
+    container_name: superset_service_db
     networks:
       - superset-net
     environment:
@@ -17,6 +18,7 @@ services:
 
   redis:
     image: redis:7
+    container_name: superset_redis
     command: ["redis-server", "--appendonly", "yes"]
     networks:
       - superset-net
@@ -57,4 +59,4 @@ services:
 
 networks:
   superset-net:
-    driver: bridge
+    external: true
