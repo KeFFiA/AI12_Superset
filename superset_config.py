@@ -7,7 +7,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 SUPERSET_FEATURE_EMBEDDED_SUPERSET =True
 ENABLE_UI_THEME_ADMINISTRATION = True
 
-APP_NAME = "BI.AI12"
+APP_NAME = "AI12.Business Intelligence"
 
 # --- Main DB ---
 SQLALCHEMY_DATABASE_URI = os.getenv("MAIN_DB_URL", "postgresql+psycopg2://superset:superset@db:5432/superset")
