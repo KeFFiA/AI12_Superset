@@ -14,5 +14,5 @@ ENV SUPERSET_CONFIG_PATH /app/superset_config.py
 
 USER superset
 
-CMD [ "sh", "-c", "superset db upgrade && superset fab create-admin --username admin --firstname Admin --lastname Admin --email admin@admin.com --password admin || true && superset init && /app/docker/entrypoints/run-server.sh" ]
+CMD [ "sh", "-c", "superset db upgrade && superset init && /app/docker/entrypoints/run-server.sh" ]
 

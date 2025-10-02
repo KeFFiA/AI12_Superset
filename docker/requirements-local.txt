@@ -12,3 +12,7 @@ flask-cors
 
 pillow
 
+# Dremio Connector
+sqlalchemy_dremio
+pyodbc
+
