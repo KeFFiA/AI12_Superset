@@ -7,7 +7,7 @@ COPY docker/requirements-local.txt /app/docker/requirements-local.txt
 RUN apt-get update && apt-get install -y libpq-dev python3-dev && rm -rf /var/lib/apt/lists/*
 
 RUN . /app/.venv/bin/activate && \
-    uv pip install --no-cache-dir -r /app/docker/requirements-local.txt && uv pip install --upgrade pyarrow
+    uv pip install --no-cache-dir -r /app/docker/requirements-local.txt && uv pip install --upgrade pyarrow && uv pip freeze
 
 COPY --chown=superset superset_config.py /app/
 ENV SUPERSET_CONFIG_PATH /app/superset_config.py
